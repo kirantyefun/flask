@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{%block head%}
+{%endblock%}
+
+{%block body%}
+
+<h1>hello world</h1>
+
+<form action="/register" method="POST">
+    <input autofocus autocomplete="off" name="name" type="text" placeholder="Name">
+    <!-- <select name="education">
+        <option value="" disabled selected>Education</option>
+        <option value="SEE">SEE</option>
+        <option value="intermediate">intermediate</option>
+        <option value="Bachelors">Bachelors</option>
+        <option value="Masters">Masters</option>
+    </select> -->
+
+    <input name="education" list="degree" placeholder="Education">
+    <datalist id="degree">
+        <option value="SEE">SEE</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Bachelors">Bachelors</option>
+        <option value="Masters">Masters</option>
+    </datalist>
+    <input type="submit" value="Register">
+</form>
+
+<script>
+
+    document.querySelector("form").onsubmit = function () {
+        if (!document.querySelector("input").value) {
+            alert("You must provide name")
+            return false;
+        }
+        else if (!document.querySelector("select").value) {
+            alert("You must provide education")
+            return false
+        }
+        return true;
+    };
+
+</script>
+
+
+
+{%endblock%}
